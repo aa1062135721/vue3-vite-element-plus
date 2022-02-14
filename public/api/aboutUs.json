@@ -1,0 +1,7 @@
+{
+    "code": 200,
+    "message": "请求成功",
+    "data": {
+        "content": "<div style='text-align: left; display: flex; justify-content: space-between;' ><img style='width: 20rem; height: 15rem; margin-right: 4rem' src='https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic1.58cdn.com.cn%2Fenterprise%2Fappearance%2Fbig%2Fn_v2fab12bdbecdf490fa3e79ad8a63076b4.jpg&refer=http%3A%2F%2Fpic1.58cdn.com.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1646981275&t=31a9b89c9228050fdaadca1cbf6bed70' /> <p>环宇达康公司成立于 2013 年，先后创建了全球肿瘤医生网、无癌家园、细胞治疗家园三大肿瘤医学科普平台。 总部位于北京，与美国、欧洲、日本多家癌症治疗中心和综合医院建立了合作关系，协助国内肿瘤患者获得国内外医学专家诊疗服务和生物医学科技服务。 公司经过8年的发展，已成为国内具有影响力的肿瘤患者科普平台、肿瘤患者医疗咨询平台和临床试验招募平台。 目前我们可协助肿瘤患者进行中美专家会诊、国内外就医 、临床试验招募、抗癌技术推广等全程患者管理服务。</p></div>"
+    }
+}
