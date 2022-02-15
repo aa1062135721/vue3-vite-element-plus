@@ -1,57 +1,64 @@
 <template>
   <div class="about">
-    <div v-html="content" class="content"></div>
-    <div>
-      <p>用户名： {{userInfo.userName}}</p>
-      <p>密码： {{userInfo.passWord}}</p>
+    <div class="change">
+      <el-button  l-button type="primary" @click="changeName">{{title}}</el-button>
     </div>
-    <el-button type="primary" @click="changeName">点击</el-button>
+    <div v-html="content" class="content"></div>
   </div>
 </template>
 
 <script>
-import { getCurrentInstance, ref, reactive, toRefs } from 'vue';
+import { getCurrentInstance, ref, onMounted } from 'vue';
 export default {
   name: "WorkspaceJsonIndex",
   setup() {
     let { proxy } = getCurrentInstance();
-    let content = ref(0)
-    let { userInfo, changeName } = clickBtn()
     return {
-      userInfo,
-      changeName,
-      ...getAboutUs(proxy, content),
+      ...clickBtn(proxy)
     }
   }
 };
 
-// 获取关于我们
-function getAboutUs (http, content) {
-  http.Api.get('aboutUs').then(res => {
-    content.value = res.data.data.content
-  })
-  return { content }
-}
-
 // 点击
-function clickBtn (item) {
+function clickBtn (proxy) {
   let flag = ref(true)
-  let userInfo = reactive({
-    userName: 'admin',
-    passWord: '123456'
-  })
+  let title = ref('下一页')
+  const content = ref(0)
+  
+  function getAboutUs () {
+    title.value = '下一页'
+    proxy.Api.get('aboutUs').then(res => {
+      content.value = res.data.data.content
+    })
+  }
+
   function changeName () {
     flag = !flag
-    flag ? (userInfo.userName = 'admin', userInfo.passWord = '123456') : (userInfo.userName = '李四', userInfo.passWord = '147258')
+    if (!flag) {
+      title.value = '上一页'
+      proxy.Api.get('contactUs').then((res) => {
+        if (res.data.code) {
+          content.value = res.data.data.content
+        }
+      })
+    } else {
+      getAboutUs()
+    }
   }
-  return { userInfo, changeName }
+
+  getAboutUs ()
+  return { content, title, changeName, getAboutUs}
 }
 </script>
 
 <style lang="scss" scoped>
 .about {
+  .change {
+    display: flex;
+    justify-content: flex-end;
+  }
   .content {
-    width: 50%;
+    width: 70%;
     text-indent: 2rem;
     line-height: 2rem;
   }
