@@ -1,4 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
+import { ElMessage } from 'element-plus'
 const router = createRouter ({
     history: createWebHashHistory(),
     routes: [
@@ -73,7 +74,13 @@ router.beforeEach((to, from, next) => {
         if (to.path === '/login') {
             next()
         } else {
-            next('/login')
+            ElMessage({
+                message: '登陆已过期，请重新登陆',
+                type: 'warning',
+            })
+            setTimeout(() => {
+                next('/login')
+            }, 1000);
         }
     }
 })

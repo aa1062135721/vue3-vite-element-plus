@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { getCurrentInstance, ref, onMounted } from 'vue';
+import { getCurrentInstance, ref } from 'vue';
 export default {
   name: "WorkspaceJsonIndex",
   setup() {

@@ -14,7 +14,7 @@
         :collapse-transition="true"
         >
         <div class="title">
-            <img :src="isCollapse ? 'src/images/leftArrow.png': 'src/images/rightArrow.png'" @click="isCollapse = !isCollapse">
+            <img :src="isCollapse ? leftArrow: rightArrow" @click="isCollapse = !isCollapse">
         </div>
             <el-menu-item index="/">
                 <i class="el-icon-s-home"></i>
@@ -38,7 +38,8 @@
 
 <script>
 import { defineComponent, ref } from 'vue';
-
+import leftArrow from '@/images/leftArrow.png'
+import rightArrow from '@/images/rightArrow.png'
 export default defineComponent({
 setup() {
     const isCollapse = ref(true);
@@ -52,6 +53,8 @@ setup() {
         isCollapse,
         handleOpen,
         handleClose,
+        leftArrow,
+        rightArrow
     };
 },
 });

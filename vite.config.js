@@ -4,11 +4,11 @@ import vue from '@vitejs/plugin-vue'
 import { defineConfig } from 'vite'
 const { resolve } = require('path')
 export default defineConfig({
-  define: {
-    'process.env': {
-      VUE_APP_API:'http://www.baidu.com/'
-    }
-  },
+  // define: {
+  //   'process.env': {
+  //     VUE_APP_API:'http://www.baidu.com/'
+  //   }
+  // },
   base: '',
   //1.别名配置
   resolve: {

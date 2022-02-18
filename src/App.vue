@@ -5,7 +5,7 @@
 <script>
     export default {
         created() {
-            console.log(process)
+            console.log(import.meta.env)
         },
     }
 </script>
