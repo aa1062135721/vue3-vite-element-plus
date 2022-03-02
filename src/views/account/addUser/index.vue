@@ -1,6 +1,18 @@
 <template>
     <div>
-        添加用户
+        <div class="block">
+            <span class="demonstration">Default</span>
+            <el-date-picker
+                v-model="value1"
+                type="datetime"
+                placeholder="Select date and time"
+                value-format="YYYY/MM/DD hh"
+                format="YYYY/MM/DD hh"
+                class="date"
+            >
+            </el-date-picker>
+            
+        </div>
     </div>
 </template>
 
@@ -8,7 +20,7 @@
 export default {
     data() {
         return {
-            
+            value1: ''
         };
     },
 
@@ -22,6 +34,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-
+<style>
+    .el-scrollbar:last-child {
+       display: none !important;
+   }
 </style>
