@@ -41,22 +41,22 @@ import { defineComponent, ref } from 'vue';
 import leftArrow from '@/images/leftArrow.png'
 import rightArrow from '@/images/rightArrow.png'
 export default defineComponent({
-setup() {
-    const isCollapse = ref(true);
-    const handleOpen = (key, keyPath) => {
-    console.log(key, keyPath);
-    };
-    const handleClose = (key, keyPath) => {
-    console.log(key, keyPath);
-    };
-    return {
-        isCollapse,
-        handleOpen,
-        handleClose,
-        leftArrow,
-        rightArrow
-    };
-},
+    setup() {
+        const isCollapse = ref(true);
+        const handleOpen = (key, keyPath) => {
+            console.log(key, keyPath);
+        };
+        const handleClose = (key, keyPath) => {
+            console.log(key, keyPath);
+        };
+        return {
+            isCollapse,
+            handleOpen,
+            handleClose,
+            leftArrow,
+            rightArrow
+        };
+    },
 });
 </script>
 

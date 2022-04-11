@@ -3,42 +3,6 @@ import { ElMessage } from 'element-plus'
 const router = createRouter ({
     history: createWebHashHistory(),
     routes: [
-        {
-            path: '/',
-            name: '首页',
-            component: () => import('@/views/home/index.vue'),
-            redirect: '/home',
-            children: [
-                {
-                    path: '/home',
-                    component: () => import('@/views/home/homeSonPage.vue')
-                },
-                {
-                    path: '/about',
-                    name: '关于我们',
-                    component: () => import('@/views/about/index.vue')
-                },
-                // 用户管理
-                {
-                    path: '/account',
-                    name: '用户管理',
-                    component: () => import('@/views/account/index.vue'),
-                    redirect: '/account/changePassword',
-                    children: [
-                        {
-                            path: 'changePassword',
-                            name: '修改密码',
-                            component: () => import('@/views/account/changePwd/index.vue')
-                        },
-                        {
-                            path: 'addUser',
-                            name: '添加用户',
-                            component: () => import('@/views/account/addUser/index.vue')
-                        }
-                    ]
-                }
-            ]
-        },
         // 登录页
         {
             path: '/login',
@@ -59,6 +23,47 @@ const router = createRouter ({
         }
     ]
 })
+
+router.addRoute({
+    path: '/',
+    name: '首页',
+    component: () => import('@/views/home/index.vue'),
+    redirect: '/home',
+    children: [
+        {
+            path: '/home',
+            component: () => import('@/views/home/homeSonPage.vue'),
+            meta: {icon: 'el-icon-s-home'}
+        },
+        {
+            path: '/about',
+            name: '关于我们',
+            component: () => import('@/views/about/index.vue'),
+            meta: {icon: 'el-icon-phone-outline'}
+        },
+        // 用户管理
+        {
+            path: '/account',
+            name: '用户管理',
+            component: () => import('@/views/account/index.vue'),
+            meta: {icon: 'el-icon-s-custom'},
+            redirect: '/account/changePassword',
+            children: [
+                {
+                    path: 'changePassword',
+                    name: '修改密码',
+                    component: () => import('@/views/account/changePwd/index.vue')
+                },
+                {
+                    path: 'addUser',
+                    name: '添加用户',
+                    component: () => import('@/views/account/addUser/index.vue')
+                }
+            ]
+        }
+    ]
+})
+
 router.beforeEach((to, from, next) => {
     let token = sessionStorage.getItem('token') || '' 
     if (token) {
